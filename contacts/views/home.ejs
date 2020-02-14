@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <title><%=title%></title>
+</head>
+<body>
+    <ul>
+        <% for (let contact of contacts) {%>
+            <li><%= contact.name %></li>
+                <%= contact.phone %>
+            <a href="/delete-contact/?id=<%= contact.id%>">Delete</a>
+        <%}%>
+    </ul>
+    <form action="/create-contact" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <button type="submit">Add Contact</button>
+    </form>
+    <script src="/js/home.js"></script>
+</body>
+</html>
